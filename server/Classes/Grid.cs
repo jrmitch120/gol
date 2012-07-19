@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Server.Classes
@@ -21,6 +22,15 @@ namespace Server.Classes
 
             for (int i = 0; i < y; i++)
                 Rows.Add(new Row(x)); 
+        }
+
+        /// <summary>
+        /// Reset the grid to all dead cells
+        /// </summary>
+        public void Reset()
+        {
+            foreach (Cell cell in Rows.SelectMany(x => x.Cells))
+                cell.Alive = false;
         }
 
         /// <summary>
