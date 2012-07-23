@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+	    body {
+		    font-family: 'Courier New';
+	    }
+    </style>
+</head>
+    <body>
+        <div id="content">Data goes here</div>
+        <script type="text/javascript" src="Scripts/jquery-1.7.2.js"></script>
+        <script type="text/javascript" src="Scripts/jquery.signalR-0.5.2.js"></script>
+        <script type="text/javascript" src="http://localhost:8081/signalr/hubs"></script>
+        <script type="text/javascript">
+            $(function() {
+                $.connection.hub.logging = true;
+                $.connection.hub.url = 'http://localhost:8081/signalr';
+                
+                var myHub = $.connection.gameHub;
+
+                function connectionReady() {
+                    alert("Done calling first hub serverside-function");
+                }
+
+                myHub.update = function (game) {
+                    $('#content').html(JSON.stringify(game.GridOfLife.Rows));
+
+                    var result = '';
+                    
+                    $.each(game.GridOfLife.Rows, function () {
+                        $.each(this.Cells, function () {
+                            this.Alive ? result += 'x' : result += '.';
+                        });
+                        result += '<br/>';
+                    });
+
+                    $('#content').html(result);
+                };
+
+                $.connection.hub.start()
+                    .done(function() {
+                        myHub.alive(); //e.g. a login or init
+                            //.done(connectionReady);
+                    })
+                    .fail(function() {
+                        alert("Could not Connect!");
+                    });
+            });
+        </script>
+    </body>
+</html>

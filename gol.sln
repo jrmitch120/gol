@@ -3,12 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "server\Server.csproj", "{5AF4B89E-970F-4098-9780-C055DA66F02D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "client\Client.csproj", "{02F43D50-AEA3-41EC-8F1C-5AC0DA1FE32B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02F43D50-AEA3-41EC-8F1C-5AC0DA1FE32B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02F43D50-AEA3-41EC-8F1C-5AC0DA1FE32B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02F43D50-AEA3-41EC-8F1C-5AC0DA1FE32B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02F43D50-AEA3-41EC-8F1C-5AC0DA1FE32B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5AF4B89E-970F-4098-9780-C055DA66F02D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5AF4B89E-970F-4098-9780-C055DA66F02D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AF4B89E-970F-4098-9780-C055DA66F02D}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 using Server.Classes;
+using SignalR;
 
 namespace Server
 {
@@ -13,6 +14,17 @@ namespace Server
         //static void Main(string[] args)
         static void Main()
         {
+            // Hub
+            string url = "http://localhost:8081/";
+            var server = new SignalR.Hosting.Self.Server(url);
+
+            // Map the default hub url (/signalr)
+            server.MapHubs();
+
+            // Start the server
+            server.Start();
+            var context = GlobalHost.ConnectionManager.GetHubContext<GameHub>();
+            
             var game = new Game(GridWidth, GridHeight);
             var sw = new Stopwatch();
 
@@ -47,8 +59,10 @@ namespace Server
                                              " Tick Time: " + sw.Elapsed + 
                                              " Game Over?: " + (game.GameOver ? "Yes.  Final Gen: " + game.FinalGeneration : "No"));
 
-                    if(sw.Elapsed.TotalMilliseconds <= 100)
-                        System.Threading.Thread.Sleep(100);
+                    if(sw.Elapsed.TotalMilliseconds <= 750)
+                        System.Threading.Thread.Sleep(750 - (int)sw.Elapsed.TotalMilliseconds);
+
+                    context.Clients.update(game);
                 }              
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
         }

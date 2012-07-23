@@ -35,6 +35,18 @@
     <Reference Include="KellermanSoftware.Compare-NET-Objects">
       <HintPath>..\libs\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.7\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SignalR">
+      <HintPath>..\packages\SignalR.Server.0.5.2\lib\net40\SignalR.dll</HintPath>
+    </Reference>
+    <Reference Include="SignalR.Hosting.Common">
+      <HintPath>..\packages\SignalR.Hosting.Common.0.5.2\lib\net40\SignalR.Hosting.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SignalR.Hosting.Self">
+      <HintPath>..\packages\SignalR.Hosting.Self.0.5.2\lib\net40\SignalR.Hosting.Self.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,6 +60,7 @@
     <Compile Include="Classes\Extensions.cs" />
     <Compile Include="Classes\Game.cs" />
     <Compile Include="Classes\GridException.cs" />
+    <Compile Include="Classes\GameHub.cs" />
     <Compile Include="Classes\Tunnel.cs" />
     <Compile Include="Classes\Grid.cs" />
     <Compile Include="Classes\Row.cs" />
@@ -56,7 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="README.md" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
